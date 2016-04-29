@@ -1,0 +1,20 @@
+
+
+\chapter{KONSEP DASAR SISTEM INFORMASI GEOGRAFIS (SIG)}
+
+\begin{enumerate}[A.]
+\item{Definisi}
+
+Sistem Informasi Geografis (Geographic Information System / GIS) yang selanjutnya disebut SIG merupakan sistem informasi berbasis komputer yang digunakan untuk mengolah dan menyimpan data atau informasi geografis.
+
+Secara umum pengertian SIG adalah sebagai berikut :
+\begin{italicquotes}
+Suatu komponen yang terdiri dari \textbf{perangkat keras, perangkat lunak, sumber daya manusia, dan data} yang bekerja bersama secara efektif untuk memasukkan, menyimpan, memperbaiki, memperbaharui, mengelola, memanipulasi, mengintegrasikan, menganalisa, dan menampilkan data dalam suatu informasi berbasis geografis.
+\end{italicquotes}
+
+Dalam pembahasan selanjutnya, SIG akan selalu diasosiasikan dengan sistem yang berbasis komputer, walaupun pada dasarnya SIG dapat dikerjakan secara manual, SIG yang berbasis komputer akan sangat membantu ketika data geografis merupakan data yang besar (dalam jumlah dan ukuran) dan terdiri dari banyak tema yang saling berkaitan.
+
+SIG mempunyai kemampuan untuk menghubungkan berbagai data pada suatu titik tertentu di bumi, menggabungkannya, menganalisa, dan akhirnya memetakan hasilnya.
+
+\item{Komponen SIG}
+\end{enumerate}
