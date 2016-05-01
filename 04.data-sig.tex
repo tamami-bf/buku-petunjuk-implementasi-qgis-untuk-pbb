@@ -1,2 +1,45 @@
 \chapter{DATA SIG (Format dan Sumber Data)}
 
+Untuk membuat sebuah peta dalam proyek SIG diperlukan satu atau lebih data. Data yang akan digunakan dalam berbagai format dan sumber yang berbeda. Pada Bab ini akan dijelaskan format data geografis yang biasa digunakan, dari mana saja data tersebut dapat diperoleh dan bagaimana mengelola data tersebut agar dapat digunakan lagi dikemudian hari untuk membuat peta dalam proyek SIG lainnya.
+
+\begin{enumerate}[A.]
+
+\item Format / model data geografis
+
+Terdapat dua format / model data geografis yang umum digunakan dalam SIG sederhana, yaitu data dengan format \textit{Vektor} dan \textit{Raster}.
+
+\begin{enumerate}[1.]
+
+\item Data \textit{Vektor}
+
+Objek atau fitur direpresentasikan sebagai titik (\textit{point}), garis (\textit{line}), atau area (\textit{polygon}), contohnya titik GPS, batas-batas kadaster, tutupan lahan. Biasanya data dihasilkan dari proses digitasi / vektorisasi, pengukuran GPS yang disimpan dalam bentuk koordinat x, y, (z). 
+
+\item Data \textit{Raster}
+
+Objek atau fitur direpresentasikan sebagai struktur sel grid \textit{pixel} (\textit{picture element}). Contohnya peta hasil \textit{scan}, citra satelit, citra foto udara, \textit{raster} DEM, dan lain-lain. Data biasanya dihasilkan dari Foto Udara, sistem penginderaan jauh, dimana masing-masing \textit{grid} / sel atau \textit{pixel} memiliki nilai tertentu.
+
+\end{enumerate}
+
+\item Sumber Data
+
+Data dalam format \textit{raster} maupun \textit{vektor} dapat diperoleh dari berbagai sumber baik di dalam maupun luar negeri, gratis maupun berbayar. Berikut beberapa sumber yang menyediakan data secara gratis :
+
+\begin{enumerate}
+
+\item BIG (Badan Informasi Geospasial)
+
+Kebijakan satu peta yang dikeluarkan pemerintah pada tahun 2011, mengharuskan peta yang dibuat berdasarkan peta dasar yang disediakan oleh BIG. Oleh karena itu, BIG menyediakan peta yang bisa dimanfaatkan oleh instansi pemerintah baik pusat maupun daerah, swasta, dan masyarakat umum untuk membuat peta tematik. Data dasar dalam format \textit{vektor} dapat diunduh pada sebuah portal di alamat http://portal.ina-sid.or.id.
+
+\item CGIAR (\textit{Consortium for Spatial Information}) Menyediakan data SRTM (Model Elevasi Ketinggian resolusi 90m) bisa di unduh secara gratis di http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp/.
+
+\item OSM (Open Street Map)
+
+Menyediakan data \textit{vektor} dan peta dunia secara gratis. Merupakan sistem \textit{croudsourcing} dimana data yang ada pada OSM merupakan kontribusi anggota OSM. Jadi kualitas (kelengkapan, kebenaran, dan kekinian) data tersebut tergantung dari kontributornya. Data OSM dapat diperoleh melalui beberapa cara diantaranya :
+
+\textit{Geofabrik (https://www.geofabrik.de)}
+
+\textit{Hotexport (http://export.hotosm.org), dan menggunakan tools qgis}
+
+\end{enumerate}
+
+\end{enumerate}
