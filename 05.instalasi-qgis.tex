@@ -54,8 +54,32 @@ atau
 deb http://qgis.org/ubuntugis trusty main
 \end{verbatim}
 
+Pada modul kali ini menggunakan repositori dari http://qgis.org/debian untuk distro Ubuntu versi 14.04 dengan nama alias \textit{trusty} untuk mendapatkan versi terbaru dari QGIS ini, yaitu versi 2.14 dengan nama alias \textit{essen}, sehingga dipilih opsi pertama. Sedangkan pada opsi kedua disajikan untuk distro Ubuntu versi 14.04 dengan versi QGIS berada pada 2.8 yang merupakan versi LTR (\textit{Long Term Release}).
 
+\item Langkah selanjutnya adalah menjalankan perintah berikut pada konsol linux :
 
+\begin{verbatim}
+> sudo apt-get update
+\end{verbatim}
+
+Sehingga nanti daftar repositori \textit{software} akan terbaharui dan menambahkan sumber baru untuk melakukan instalasi QGIS.
+
+\item Setelah repositori ter-\textit{update}, maka cukup menjalankan perintah berikut untuk instalasinya :
+
+\begin{verbatim}
+> sudo apt-get install qgis
+\end{verbatim}
+
+Tunggulah sampai selesai, dan aplikasi QGIS siap digunakan. 
 \end{enumerate}
+
+Jika aplikasi QGIS dijalankan, maka tampilannya akan terlihat seperti gambar \ref{fig:tampilan-awal-qgis}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{./resources/003-jendela-awal-qgis}
+  \caption{Jendela Awal QGIS}
+  \label{fig:tampilan-awal-qgis}
+\end{figure}
 
 \end{enumerate}
