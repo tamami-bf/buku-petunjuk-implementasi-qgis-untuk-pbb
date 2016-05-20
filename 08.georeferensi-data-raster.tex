@@ -62,4 +62,35 @@ Pada Bab ini, akan dipelajari bagaimana melakukan georeferensi terhadap data \te
     \label{fig:georeftif}
   \end{figure}
   
+  Untuk memetakan 1 (satu) Kabupaten Brebes, sebetulnya lebih cocok menggunakan sistem koordinat terproyeksi seperti UTM, maka sumber data peta hasil \textit{scan} akan lebih memudahkan apabila terdapat informasi sebagaimana ditujukan pada gambar \ref{fig:refutm}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/024-utmpeta}
+    \caption{Informasi Referensi UTM}
+    \label{fig:refutm}
+  \end{figure}
+  
+  Jika diperhatikan, maka peta hasil \textit{scan} tersebut masuk ke dalam zona 49. Karena informasi yang ditunjukkan oleh peta berada pada koordinat geografis S (\textit{South}) maka dapat dipastikan bahwa \textit{grid} peta tersebut berada pada zona 49S.
+  
+  Sebelum menentukan titik ikat, maka diperlukan proyeksi yang tepat terlebih dahulu dengan klik menu \verb|Settings > Transformation Settings...| atau klik ikon seperti gambar \ref{fig:transformationicon}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{./resources/025-icon-transformation}
+    \caption{Ikon \textit{Transformation}}
+    \label{fig:transformationicon}
+  \end{figure}
+  
+  Setelah itu akan muncul jendela seperti pada gambar \ref{fig:transformationwin}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/026-transformation-win}
+    \caption{Jendela Konfigurasi \textit{Transformation}}
+    \label{fig:transformationwin}
+  \end{figure}
+  
+  Yang perlu diperhatikan adalah pada bagian \verb|Target SRS|, pilihlah proyeksi yang tepat, yaitu \textbf{WGS 84 / UTM 49S} atau dengan kode yang lain adalah \textbf{EPSG:32749}.
+  
 \end{enumerate}
