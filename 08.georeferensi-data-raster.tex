@@ -82,7 +82,7 @@ Pada Bab ini, akan dipelajari bagaimana melakukan georeferensi terhadap data \te
     \label{fig:transformationicon}
   \end{figure}
   
-  Setelah itu akan muncul jendela seperti pada gambar \ref{fig:transformationwin}.
+  \item Setelah itu akan muncul jendela seperti pada gambar \ref{fig:transformationwin}.
   
   \begin{figure}[H]
     \centering
@@ -91,6 +91,15 @@ Pada Bab ini, akan dipelajari bagaimana melakukan georeferensi terhadap data \te
     \label{fig:transformationwin}
   \end{figure}
   
-  Yang perlu diperhatikan adalah pada bagian \verb|Target SRS|, pilihlah proyeksi yang tepat, yaitu \textbf{WGS 84 / UTM 49S} atau dengan kode yang lain adalah \textbf{EPSG:32749}.
+  Yang perlu diperhatikan adalah pada bagian \verb|Target SRS|, pilihlah proyeksi yang tepat, yaitu \textbf{WGS 84 / UTM 49S} atau dengan kode yang lain adalah \textbf{EPSG:32749}. Sedangkan hasil proyeksinya dapat disimpan dalam 2 (dua) model, yang pertama akan berbentuk \textit{file} \textit{GeoTIFF} dengan ekstensi tif, dan yang kedua adalah \textit{file} tambahan berupa informasi koordinat dari \textit{raster} yang dimuat. Sehingga, untuk model yang pertama, kita tidak perlu melakukan georeferensi kembali saat memuat \textit{file GeoTIFF} ke QGIS, sedangkan untuk model yang kedua, kita tidak perlu melakukan georeferensi kembali untuk \textit{raster} yang sudah memiliki pasangan \textit{file} berupa informasi koordinat yang dihasilkan dari georeferensi ini.
+  
+  \item Selanjutnya membuat titik ikat atau \textit{Ground Control Point} (GCP) pada peta tersebut, maka pilih menu \verb|Edit > Add Point|, atau klik ikon seperti pada gambar \ref{fig:addpointicon}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{./resources/027-add-point-icon}
+    \caption{Ikon \textit{Add Point}}
+    \label{fig:addpointicon}
+  \end{figure}
   
 \end{enumerate}
