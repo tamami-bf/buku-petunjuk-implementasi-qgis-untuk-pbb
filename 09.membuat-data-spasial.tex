@@ -215,11 +215,11 @@ Penentuan nama \textit{file} dan atributnya sudah dijadikan standar dengan penje
   
   \begin{table}[H]
     \centering
-    \begin{tabular}[| c | c | c | p{7cm} |}
+    \begin{tabular}{| c | c | c | p{7cm} |}
       \hline
       Field & Tipe & Index & Keterangan \\
       \hline\hline
-      \textbf{d\_text} & character(30) & & Sebagai penjelas / keterangan pada bidang cetak peta.
+      \textbf{d\_text} & character(30) & & Sebagai penjelas / keterangan pada bidang cetak peta. \\
       \hline
     \end{tabular}
   \end{table}
@@ -236,6 +236,30 @@ Penentuan nama \textit{file} dan atributnya sudah dijadikan standar dengan penje
   \end{itemize}
   
   \item \textit{Layer} Batas Blok
+  
+  \textit{Layer} ini menggambarkan batas blok dalam suatu Desa/Kelurahan, penamaan \textit{file} mengikuti aturan \texttt{3329KKKLLLbl} dengan keterangan sebagai berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan yang dapat dilihat pada basis data SISMIOP
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan yang dapat dilihat pada basis data SISMIOP.
+  \end{itemize}
+  
+  Ciri fisik dari \textit{layer} batas blok ini adalah bertipe \textbf{polygon}, \textit{fill pattern} \textbf{none}, \textit{border style} \textbf{garis putus dan titik}, \textit{line style} \textbf{setara MapInfo nomor 13}, \textit{color} \textbf{blue}, \textit{width} \textbf{0,25mm}.
+  
+  Dengan struktur basis datanya adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_blok} & character(13) & & Kode wilayah + Nomor blok \\
+      \hline
+    \end{tabular}
+  \end{table}
   
   \item \textit{Layer} Simbol
   
