@@ -8,7 +8,7 @@ Pada Bab ini, akan dipelajari bagaimana melakukan georeferensi terhadap data \te
 
 \begin{enumerate}[1.]
 
-  \item Pada jendela utama Quantum GIS, klik \verb|Raster > Georeferencer > Georeferencer|, bila menu tersebut tidak muncul seperti gambar \ref{fig:georefmenunotexists}.
+  \item Pada jendela utama Quantum GIS, klik \texttt{Raster > Georeferencer > \- Georeferencer}, bila menu tersebut tidak muncul seperti gambar \ref{fig:georefmenunotexists}.
   
   \begin{figure}[H]
     \centering
@@ -133,7 +133,7 @@ Pada Bab ini, akan dipelajari bagaimana melakukan georeferensi terhadap data \te
   
   \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth}{./resources/031-rbi-brebes-crop-grid}
+    \includegraphics[width=1\textwidth]{./resources/031-rbi-brebes-crop-grid}
     \caption{Hasil \textit{Zoom-in} Pojok Kiri Atas Peta RBI}
     \label{fig:rbigrid}
   \end{figure}
@@ -145,6 +145,28 @@ Pada Bab ini, akan dipelajari bagaimana melakukan georeferensi terhadap data \te
     \includegraphics[width=1\textwidth]{./resources/032-jendela-georeferencer}
     \caption{Jendela \textit{Georeferencer}}
     \label{fig:jendelatitikikat}
+  \end{figure}
+  
+  \item Lakukan hal yang sama untuk ketiga titik ikat lainnya sesuai dengan arah jarum jam.
+  
+  \item Tahap selanjutnya adalah menentukan pengaturan Transformasi untuk data \textit{raster} tersebut (Peta RBI), pilih menu \textit{Setting > Transformation Settings}, seperti yang ditunjukan pada gambar \ref{fig:transformationmenu}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/033-menu-transformation}
+    \caption{Menu \textit{Transformation}}
+    \label{fig:transformationmenu}
+  \end{figure}
+  
+  \item Setelah memilih menu \textit{Transformation}, akan muncul kotak dialog \textit{Transformation Setting}, tentukan tipe transformasi \textit{Linear}, dan metode \textit{Resampling} sesuai dengan yang diinginkan. Tentukan pula \textit{output raster}, dan pilih \verb|Create World File| sehingga nantinya dibuatkan \textit{file} referensi koordinat untuk gambar tersebut, dan jangan lupa untuk mengatur koordinat referensi yang digunakan, sesuaikan dengan zonanya.
+  
+  \item Setelah itu jalankan proses \textit{referencing} dengan menekan tombol \verb|start Georeferencing| atau menekan ikon seperti pada gambar \ref{fig:startgeoref}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{./resources/034-icon-start-georef}
+    \caption{Ikon \textit{Georeferencing}}
+    \label{fig:startgeoref}
   \end{figure}
   
 \end{enumerate}
