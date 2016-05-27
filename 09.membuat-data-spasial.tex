@@ -2,3 +2,257 @@
 
 Sebelumnya kita telah belajar bagaimana membuat peta sederhana dengan menampilkan Data Spasial yang telah disediakan. Tetapi, kita juga harus mempelajari bagaimana membuat Data Spasial yang baru, terutama jika kita tidak mempunyai Data Spasial tersebut. Misalkan, kita mempunyai sumber data \textit{raster} seperti citra satelit, foto udara, peta rupa bumi Indonesia, atau peta lainnya yang memiliki informasi koordinat, kita dapat membuat data spasialnya dengan melakukan digitasi terhadap data \textit{raster} tersebut.
 
+\section{Pengertian Digitasi Peta}
+
+Digitasi secara umum dapat didefinisikan sebagai proses konversi data analog ke dalam format digital. Objek-objek tertentu seperti jalan, rumah, sawah, dan lain-lain yang sebelumnya dalam format \textit{raster} maka menjadi objek-objek \textit{vektor}. Pada sebuah citra satelit resolusi tinggi dapat diubah kedalam format digital dengan proses digitasi.
+
+\section{Metode Digitasi}
+
+Proses digitasi secara umum dibagi dalam dua macam :
+
+\begin{enumerate}[1.]
+
+  \item Digitasi menggunakan \textit{digitizer} (zaman dulu, tetapi kini hampir tidak lagi), dalam proses digitasi ini memerlukan sebuah meja digitasi atau \textit{digitizer}.
+  
+  \item Digitasi \textit{on-screen} di layar monitor.
+  
+  Digitasi \textit{on-screen} paling sering dilakukan karena lebih mudah dilakukan, tidak memerlukan tambahan peralatan lainnya, dan lebih mudah untuk dikoreksi apabila terjadi kesalahan.
+  
+  Digitasi \textit{on-screen} biasanya dilakukan pada/dibantu oleh suatu \textit{base-layer} yang memiliki referensi spasial, misalnya citra satelit.
+
+\end{enumerate}
+
+\section{Membuat \textit{Shapefile}}
+
+\begin{enumerate}[1.]
+
+  \item Untuk membuat \textit{shapefile} baru pada QGIS, pilih menu \texttt{Layer > Create Layer > New Shapefile Layer} seperti pada gambar \ref{fig:menunewshape} atau dengan \textit{shortcut} \texttt{Ctrl + Shift + N}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/036-menu-new-shape}
+    \caption{Menu Menambahkan \textit{Layer Shapefile}}
+    \label{fig:menunewshape}
+  \end{figure}
+  
+  \item Kemudian akan muncul kotak dialog pembuatan \textit{layer} baru seperti gambar \ref{fig:newshapedialog}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/037-new-shape-dialog}
+    \caption{Jendela Pembuatan \textit{Layer Shapefile}}
+    \label{fig:newshapedialog}
+  \end{figure}
+  
+  Tipe \textbf{Point} adalah jenis \textit{layer} berupa titik yang digunakan untuk membuat \textit{Point of Interest}
+  
+  Tipe \textbf{Line} adalah jenis \textit{layer} berupa garis digunakan untuk membuat jalan, sungai, dan lainnya.
+  
+  Tipe \textbf{Polygon} adalah jenis \textit{layer} berupa area/luasan digunakan untuk membuat batas administrasi, \textit{landcover}, bangunan, dan lainnya.
+  
+  \item Tentukan sistem koordinatnya, di Indonesia sistem koordinat yang dipakai adalah WGS 1984. Apabila ingin menggunakan sistem koordinat UTM dengan zona UTM yang tentunya wilayah Kabupaten Brebes berada pada WGS84 UTM 49S (sebagai referensi tentang sistem koordinat yang digunakan, dapat melihat kembali bab tentang sistem koordinat).
+  
+  \item Membuat kolom pada data atribut.
+  
+  \begin{itemize}
+  
+    \item Buat nama kolom pada bagian \textit{Name}
+    
+    \item Tentukan tipe data yang ingin digunakan pada bagian \textit{Type}, keterangan untuk tiap tipe data adalah sebagai berikut :
+    
+    \begin{enumerate}[a.]
+    
+      \item \textbf{Tipe Data \textit{Text / String}} merupakan jenis data berupa teks, seluruh karakter termasuk \textit{alphanumeric} yang berjumlah maksimal 255 karakter.
+      
+      \item \textbf{Tipe Data \textit{Whole Number / Integer}} merupakan jenis data untuk bilangan bulat, seluruh angka termasuk positif dan negatif yang biasanya digunakan untuk menunjukkan nilai banyak (kuantitas) dari suatu tema, misalnya populasi penduduk.
+      
+      \item \textbf{Tipe Data \textit{Decimal Number / Real}} merupakan jenis data untuk bilangan pecahan yang biasa dituliskan dalam bentuk desimal dan memiliki \textit{range} yang spesifik. Dengan menggunakan tipe data ini, kita bisa 'menolak' sebuah nilai jika nilai tersebut diluar dari \textit{precision} dan \textit{scale} yang sudah ditentukan sebelumnya. Contoh : Kita menentukan \textit{precision} 4 (lebar \textit{field} hanya menerima maksimal 4 angka termasuk nilai \textit{decimal} tanpa memperhitungkan pemecahan angka tersebut, yaitu titik sebagai bentuk desimal) dan \textit{scale} 2 (maksimal 2 angka setelah pemecah angka tersebut, yaitu titik sebagai bentuk desimal), maka \textit{field} tersebut bisa menerima nilai 12,35 tetapi tidak dapat menerima nilai-nilai 1,235 dan 123,5. 
+    
+    \end{enumerate}
+    
+    \item Atur panjangnya karaketer yang dapat disimpan pada kolom \textit{width}.
+    
+    \item Khusus untuk tipe data \textit{Decimal Number} kita bisa mengatur panjangnya karakter sesudah koma yang dapat disimpan pada kolom \textit{Precision}
+    
+    \item Sebagai catatan saja bahwa nama \textit{field} terbatas hanya 10 karaketer saja dan hanya bisa menggunakan huruf, angka, \textit{hypens}, dan \textit{underscore}. Sepasang karakter dibolehkan tetapi tidak disarankan. Tidak bisa memberi nama \textit{field} menggunakan spasi atau spesial karakter lainnya, misalnya tanda tanya (?).
+    
+    \item Nama \textit{shapefile} boleh maksimal 10 karaketer (huruf, angka, underscore "\_").
+  
+  \end{itemize}
+  
+  \item Apabila sudah terisi semua, baik dari nama \textit{field}, tipe data, dan panjangnya data, kemudian klik \texttt{Add to fields list} untuk menambahkan daftar atribut yang akan dipasangkan pada \textit{shapefile} yang dibuat.
+  
+  \item Jika sudah selesai, tekan tombol \verb|OK| sehingga muncul jendela untuk menyimpan \textit{file} untuk \textit{layer shapefile} ini.
+
+\end{enumerate}
+
+Penentuan nama \textit{file} dan atributnya sudah dijadikan standar dengan penjelasan sebagai berikut :
+
+\begin{itemize}
+
+  \item \textit{Layer} Tanah / Bidang
+  
+  \textit{Layer} ini berisi tanah / bidang objek pajak dalam satu Desa / Kelurahan, dimana penamaan \textit{file} untuk layer tanah / bidang mengikuti format \texttt{3329KKKLLL}, dimana polanya adalah sebagai berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah, sehingga sifatnya mutlak.
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes, sehingga sifatnya mutlak.
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan di Kabupaten Brebes yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan/Desa di Kabupaten Brebes yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+  \end{itemize}
+  
+  \textit{Layer} ini bertipe \textbf{poligon}, dengan \textit{fill patter} \textbf{none}, \textit{border style} \textbf{garis penuh}, \textit{color} \textbf{black} dan \textit{width} \textbf{0,17mm}. 
+  
+  Struktur data yang ada pada \textit{layer} tanah / bidang ini adalah seperti pada tabel berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline \hline
+      \textbf{d\_nop} & character(18) & index1 & NOP setiap bidang tanah \\
+      \hline
+      \textbf{d\_luas} & decimal(10,2) & & luas bidang tanah dengan menggunakan update kolom terhadap \textit{field} d\_luas dengan \textit{field calculator} \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  \item \textit{Layer} Bangunan
+  
+  \textit{Layer} ini berisi gambar denah bangunan dalam satu Desa/Kelurahan, dimana penamaan \textit{file} mengikuti aturan \texttt{3329KKKLLLbg}, dimana polanya adalah sebagai berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah, sifatnya mutlak.
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes, sifatnya mutlak.
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+  \end{itemize}
+  
+  \textit{Layer} ini memiliki ciri fisik lain yaitu bertipe \textbf{poligon}, dengan \textit{fill pattern} seperti \textbf{MapInfo no. 5}, \textit{foreground} seperti \textbf{MapInfo no. 7}, \textit{background} \textbf{none}, \textit{border style} \textbf{garis putus}, \textit{line style} seperti \textbf{MapInfo no. 5}, \textit{color} \textbf{hijau}, dan \textit{width} \textbf{0,17mm}.
+  
+  Struktur basis data untuk \textit{layer} bangunan ini adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_nop} & character(21) & index1 & NOP ditambah nomor bangunan untuk tiap bangunannya \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  \item \textit{Layer} Jalan
+  
+  \textit{Layer} jalan ini berisi gambar jalan dalam satu Desa/Kelurahan, dimana penamaan \textit{file} untuk \textit{layer} ini mengikuti aturan \texttt{3329KKKLLLjl}, dengan keterangan sebagai berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah.
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes.
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+  \end{itemize}
+  
+  \textit{Layer} ini memiliki ciri fisik yaitu bertipe \textbf{Polyline}, \textit{style} \textbf{garis penuh}, \textit{color} \textbf{red}, \textit{width} \textbf{0,17mm}.
+  
+  Struktur basis data untuk \textit{layer} jalan ini adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_nm\_jln} & character(30) & & Nama Jalan \\
+      \hline
+      \textbf{d\_lbr\_jln} & Integer & & Lebar jalan (rata-rata lebar pada jalan tersebut) \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  \item \textit{Layer} Sungai
+  
+  \textit{Layer} ini berisi gambar sungai dalam satu Desa/Kelurahan, dimana penamaan \textit{file} untuk \textit{layer} ini mengikuti aturan \texttt{3329KKKLLLsg}, dengan keterangan berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah.
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan yang dapat dilihat pada basis data SISMIOP sebagai referensi
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan yang dapat dilihat pada basis data SISMIOP sebagai referensi.
+  \end{itemize}
+  
+  \textit{Layer} ini memiliki ciri fisik bertipe \textbf{polyline}, dengan \textit{style} \textbf{garis penuh}, \textit{color} \textbf{blue}, dan \textit{width} \textbf{0,17mm}.
+  
+  Struktur basis data untuk \textit{layer} sungai ini adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_nm\_sng} & character(30) & & Nama Sungai \\
+      \hline
+      \textbf{d\_lbr\_sng} & integer & & Lebar sungai (rata-rata lebar pada sungai tersebut) \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  \item \textit{Layer} Teks
+  
+  \textit{Layer} ini berisi keterangan teks dalam satu Desa/Kelurahan, penamaan \textit{file} untuk \textit{layer} ini mengikuti aturan \texttt{3329KKKLLLtx}, dengan keterangan sebagai berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan yang dapat dilihat pada basis data SISMIOP
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan yang dapat dilihat pada basis data SISMIOP.
+  \end{itemize}
+  
+  Struktur basis data untuk \textit{layer} teks ini adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_text} & character(30) & & Sebagai penjelas / keterangan pada bidang cetak peta.
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  Kolom \texttt{d\_text} dapat berisi :
+  
+  \begin{itemize}
+    \item Teks mengenai keseluruhan nama utilitas jalan, sungai, informasi nama wilayah yang bersebelahan, informasi lokasi penting, dan sebagainya, yang tidak termasuk \textit{layer-layer} lain berwarna hitam dengan tipe huruf \textit{italic} berukuran sesuai dengan gambar.
+    \item Batas tepi jalan diperkeras berwarna merah ukuran garis paling tipis
+    \item Batas tepi jalan tidak diperkeras berwarna coklat kekuningan berukuran garis paling tipis
+    \item Batas tepi jalan TOL berwarna merah berukuran garis tipis nomor 2 (di MapInfo)
+    \item Batas tepi sungai berwarna biru berukuran garis tipis nomor 2 (di MapInfo).
+    \item Utilitas yang disertai dengan simbolnya.
+  \end{itemize}
+  
+  \item \textit{Layer} Batas Blok
+  
+  \item \textit{Layer} Simbol
+  
+  \item \textit{Layer} Batas Kelurahan
+  
+  \item \textit{Layer} Batas Kecamatan
+  
+  \item \textit{Layer} Batas Kabupaten
+
+\end{itemize}
+
+\section{Penentuan Nilai Atribut dengan \textit{Value Map}}
+
+\section{Edit Tabel Atribut}
+
+\section{Memastikan CRS (\textit{Coordinate Reference System}) \textit{Settings}}
+
+\section{Memulai Digitasi}
+
+\section{\textit{Snapping Option}}
