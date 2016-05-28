@@ -256,22 +256,168 @@ Penentuan nama \textit{file} dan atributnya sudah dijadikan standar dengan penje
       \hline
       Field & Tipe & Index & Keterangan \\
       \hline\hline
-      \textbf{d\_blok} & character(13) & & Kode wilayah + Nomor blok \\
+      \textbf{d\_blok} & character(13) & index1 & Kode wilayah + Nomor blok \\
       \hline
     \end{tabular}
   \end{table}
   
   \item \textit{Layer} Simbol
   
+  \textit{Layer} ini digunakan untuk memberikan simbol simbol umum pada peta dalam satu Desa/Kelurahan. Penamaan \textit{file} untuk \textit{layer} ini mengikuti aturan \texttt{3329KKKLLLsi}, dengan keterangan sebagai berikut :
+  
+  \begin{itemize}
+    \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah
+    \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes
+    \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan yang dapat dilihat pada basis data SISMIOP.
+    \item \texttt{LLL} adalah 3 (tiga) digit kode Kelurahan yang dapat dilihat pada basis data SISMIOP.
+  \end{itemize}
+  
+  Struktur basis data dari \textit{layer} simbol ini adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_kd\_simbol} & character(4) & & Kode simbol \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
+  Dimana isi untuk \textit{field} \texttt{d\_kd\_simbol} adalah :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c |}
+      \hline
+      Kode Simbol & Uraian Simbol \\
+      \hline\hline
+      1 & Kuburan Islam \\
+      \hline
+      2 & Kuburan Kristen \\
+      \hline
+      3 & Kuburan lainnya \\
+      \hline
+      4 & Masjid \\
+      \hline
+      5 & Gereja \\
+      \hline
+      6 & Candi \\
+      \hline
+      7 & Pura / Puri \\
+      \hline
+      8 & Klenteng \\
+      \hline
+      9 & Kantor \\
+      \hline
+      10 & Titik triangulasi \\
+      \hline
+      11 & Tugu / Titik poligon \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
   \item \textit{Layer} Batas Kelurahan
+  
+  \textit{Layer} ini berisi gambar batas wilayah administrasi tiap Desa/Kelurahan dalam satu Kecamatan. Penamaan \textit{file} untuk \textit{layer} ini mengikuti aturan \texttt{3329KKK} dengan keterangan sebagai berikut :
+  
+  \begin{itemize}
+      \item \texttt{33} adalah 2 (dua) digit kode Propinsi Jawa Tengah
+      \item \texttt{29} adalah 2 (dua) digit kode Kabupaten Brebes
+      \item \texttt{KKK} adalah 3 (tiga) digit kode Kecamatan.
+  \end{itemize}
+  
+  Adapun ciri dari \textit{layer} batas kelurahan ini adalah bertipe \textbf{poligon}, \textit{fill pattern} \textbf{none}, \textit{border style} \textbf{garis putus} dengan \textit{line style} seperti \textbf{MapInfo Nomor 7}, \textit{color} \textbf{black}, dengan \textit{width} \textbf{1 mm}.
+  
+  Struktur basis data untuk \textit{layer} batas administrasi Kelurahan adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_kd\_kel} & character(10) & index1 & Kode wilayah Kelurahan \\
+      \hline
+      \textbf{d\_nm\_kel} & character(25) & & Nama Kelurahan \\
+      \hline
+    \end{tabular}
+  \end{table}
   
   \item \textit{Layer} Batas Kecamatan
   
+  \textit{Layer} ini berisi gambar batas administrasi untuk tiap Kecamatan dalam 1 (satu) Kabupaten/Kota. Penamaan \textit{file} untuk \textit{layer} ini hanya \texttt{3329}, karena gambarnya hanya berisi batas administrasi Kecamatan di Kabupaten Brebes.
+  
+  \textit{Layer} ini memiliki ciri bertipe \textbf{poligon}, \textit{fill pattern} \textbf{none}, \textit{border style} \textbf{garis putus} dengan \textit{line style} seperti \textbf{MapInfo Nomor 7}, \textit{color} \textbf{black}, dan \textit{width} \textbf{1 mm}.
+  
+  Struktur basis data untuk \textit{layer} batas administrasi Kecamatan adalah sebagai berikut :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_kd\_kec} & character(7) & index1 & Kode wilayah Kecamatan \\
+      \hline
+      \textbf{d\_nm\_kec} & character(25) & & Nama Kecamatan \\
+      \hline
+    \end{tabular}
+  \end{table}
+  
   \item \textit{Layer} Batas Kabupaten
+  
+  \textit{Layer} ini berisi gambar batas administrasi Kabupaten, karena wilayah yang dibutuhkan hanya Kabupaten Brebes, maka hanya ada 1 (satu) \textit{file} untuk \textit{layer} ini dengan nama \textit{file} \texttt{33}.
+  
+  Ciri dari \textit{layer} batas Kabupaten ini bertipe \textbf{poligon}, \textit{fill pattern} \textbf{none}, \textit{border style} \textbf{garis positif} seperti \textit{line style} \textbf{MapInfo nomor 32}, \textit{color} \textbf{black}, dan \textit{width} \textbf{1 mm}.
+  
+  Struktur basis datanya adalah seperti berikut ini :
+  
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | p{7cm} |}
+      \hline
+      Field & Tipe & Index & Keterangan \\
+      \hline\hline
+      \textbf{d\_kd\_dt2} & character(4) & index1 & Kode Wilayah Daerah Kabupaten \\
+      \hline
+      \textbf{d\_nm\_dt2} & character(25) & & Nama Daerah Kabupaten \\
+      \hline
+    \end{tabular}
+  \end{table}
 
 \end{itemize}
 
 \section{Penentuan Nilai Atribut dengan \textit{Value Map}}
+
+Dalam banyak kasus sebenarnya tidak diperbolehkan mengisi data atribut secara bebas, tetapi harus memilih salah satu dari beberapa pilihan, misalnya dalam pengisian kelas jalan, pilihannya jalan Primer, jalan Sekunder, jalan Tersier, dan lain-lain, atau pada saat pengisian data pada \textit{layer} simbol, maka perlu dibuatkan pilihannya.
+
+Dengan Quantum GIS, kita dapat memberikan pilihan ketika mengisikan data atribut pada \textit{field} tertentu. Dengan menggunakan layer simbol, pada saat akan mengisikan kode simbol sebagai atribut, akan dimunculkan pilihan-pilihan isian dengan langkah-langkah berikut :
+
+\begin{enumerate}[1.]
+
+  \item Pastikan \textit{layer} yang dipilih aktif dan berada pada kondisi edit dengan menekan tombol \textit{Toggle Editing}, atau memilih menu \texttt{Layer > Toggle Editing}
+  
+  \item Tampilkan \textit{Layer Properties}, dengan klik kanan pada \textit{layer} \texttt{3329160009si} atau memilih menu \texttt{Layer > Properties} seperti pada gambar \ref{fig:layerproperties}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{./resources/038-layer-properties}
+    \caption{Menu \textit{Layer Properties}}
+    \label{fig:layerproperties}
+  \end{figure}
+  
+  \item Pilih bagian \textit{Field}, setelah itu pada kolom \textit{Edit Widget} klik tombol \texttt{Text Edit} untuk kolom \texttt{d\_kd\_simbo} seperti gambar \ref{fig:layerpropertieswin}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/039-jendela-layer-properties}
+    \caption{Jendela \textit{Layer Properties}}
+    \label{fig:layerpropertieswin}
+  \end{figure}
+  
+\end{enumerate}
 
 \section{Edit Tabel Atribut}
 
