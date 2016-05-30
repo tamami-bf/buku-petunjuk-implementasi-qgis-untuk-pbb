@@ -469,11 +469,149 @@ Kita dapat menambah \textit{field} / kolom pada atribut tabel dengan cara sebaga
     \caption{Dialog \textit{Add Field}}
     \label{fig:addfielddialog}
   \end{figure}
+  
+  \item Setelah semua informasi terisi, klik tombol \texttt{OK}, direkomendasikan untuk klik \textit{toggle editing} dua kali (untuk stop \textit{editing}, kemudian start \textit{editing} lagi) agar kolom langsung disimpan dalam bentuk \textit{shapefile}.
 
 \end{itemize}
 
+Untuk menghapus satu \textit{field} / kolom, klik \textit{delete field} seperti pada gambar \ref{fig:icondeletefield} dan pilih \textit{field} / kolom yang akan dihapus.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=1]{./resources/045-delete-field-icon}
+  \caption{Ikon \textit{Delete Field}}
+  \label{fig:icondeletefield}
+\end{figure}
+
+Sehingga nantinya akan muncul jendela seperti pada gambar \ref{fig:deletefielddialog}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=1]{./resources/046-delete-field-dialog}
+  \caption{Dialog \textit{Delete Field}}
+  \label{fig:deletefielddialog}
+\end{figure}
+
+Setelah itu, apabila kita memilih \textit{toggle editing} atau klik \textit{save edits}, \textit{field} / kolom langsung terhapus dari \textit{shapefile} dan tidak dapat dikembalikan lagi.
+
+Di QGIS belum ada cara untuk bisa mengganti nama \textit{field} / kolom secara langsung.
+
 \section{Memastikan CRS (\textit{Coordinate Reference System}) \textit{Settings}}
+
+Seharusnya CRS (\textit{Coordinate Reference System}) dari \textit{shapefile} dan CRS yang dipilih untuk \textit{Map Project} sama.
+
+\begin{enumerate}[a.]
+  \item Lihat CRS pada \textit{shapefile}
+  
+  Menu: \texttt{layer -> properties... -> tab metadata}
+  
+  Detailnya akan terlihat seperti pada gambar \ref{fig:crsshapefile}
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/047-crs-shapefile}
+    \caption{Informasi CRS \textit{Shapefile} pada \textit{tab Metadata}}
+    \label{fig:crsshapefile}
+  \end{figure}
+  
+  \item Melihat CRS untuk \textit{Map Project}
+  
+  Menu : \texttt{Settings -> Project Properties -> Tab Coordinate Reference System}
+\end{enumerate}
+
+  Dipastikan memilih CRS yang sama dengan \textit{layer} yang sedang diedit. Sebagai contoh tampilan CRS \textit{Project} seperti pada gambar \ref{fig:crsproject}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/048-crs-project}
+    \caption{CRS \textit{Project}}
+    \label{fig:crsproject}
+  \end{figure}
 
 \section{Memulai Digitasi}
 
+\begin{enumerate}[1.]
+
+  \item Setelah membuat \textit{shapefile} baru, selanjutnya siap untuk dilakukan proses digitasi. Apabila \textit{toolbar digitizing} belum ada, klik \texttt{views > toolbar > digitizing} seperti pada gambar \ref{fig:showdigitizingtoolbar}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/049-show-digitizing-toolbar}
+    \caption{Menampilkan \textit{Toolbar Digitizing}}
+    \label{fig:showdigitizingtoolbar}
+  \end{figure}
+  
+  \item Untuk mulai mendigitasi, klik \textit{toggle editing}, lalu klik \textit{Add Feature} dengan memilih menu \texttt{Edit > Add Feature}.
+  
+  \begin{itemize}
+    \item Untuk mendigit titik, dapat langsung klik di lokasi yang diinginkan.
+    \item Untuk mendigit garis, klik \textit{node-node} garis dengan tombol kiri \textit{mouse} dan klik tombol kanan \textit{mouse} untuk mengakhiri garis.
+    \item Untuk mendigit poligon, klik \textit{node-node} poligon dengan tombol kiri \textit{mouse} dan klik tombol kanan \textit{mouse} untuk mengakhiri.
+  \end{itemize}
+  
+  \item Selanjutnya akan muncul kotak dialog pengisian atribut, dapat diisi langsung sesuai data yang ada, atau dapat dikosongkan terlebih dahulu dengan menekan tombol \texttt{OK}
+  
+  \item Untuk memindahkan fitur yang telah dibuat, dapat menggunakan tombol \textit{Move Feature(s)}, seperti pada gambar \ref{fig:movefeatureicon}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{./resources/050-move-feature-icon}
+    \caption{Ikon \textit{Move Feature}}
+    \label{fig:movefeatureicon}
+  \end{figure}
+  
+  \item Bila ingin merubah bentuk poligon / garis, dapat menggunakan \textit{Node Tool} seperti pada gambar \ref{fig:nodetoolicon}, kemudian klik di garis poligon sehingga tampak \textit{node} penyusun poligon yang dapat dipindahkan dengan cara tahan klik dan tarik \textit{node} sehingga poligon / garis berubah bentuk.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{./resources/051-node-tool-icon}
+    \caption{Ikon \textit{Node Tool}}
+    \label{fig:nodetoolicon}
+  \end{figure}
+  
+  \item Bila ingin menambahkan \textit{node}, maka cukup klik dua kali pada garis poligon.
+  
+  \item Untuk menghapus \textit{node} cukup mudah, hanya dengan klik \textit{node} yang akan dihapus, kemudian tekan tombol \texttt{delete} pada \textit{keyboard}.
+
+\end{enumerate}
+
 \section{\textit{Snapping Option}}
+
+Dengan menggunakan fungsi \textit{snap}, kita dapat dengan mudah melakukan digitasi karena dengan fungsi ini dapat melekatkan objek yang dibuat dengan objek lainnya secara otomatis. Untuk pengaturan fungsi \textit{snap} yang akan digunakan pada proses digitasi, dapat diaktifkan pada menu \textit{snapping option} dengan melakukan langkah-langkah berikut :
+
+\begin{enumerate}[1.]
+  \item Klik \texttt{setting > snapping option} seperti pada gambar \ref{fig:snappingoptionmenu}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/052-snapping-option-menu}
+    \caption{Menu \textit{Snapping Option}}
+    \label{fig:snappingoptionmenu}
+  \end{figure}
+  
+  \item Kemudian akan muncul kotak dialog seperti pada gambar \ref{fig:snappingdialog}.
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./resources/053-snapping-dialog}
+    \caption{Dialog \textit{Snapping Option}}
+    \label{fig:snappingdialog}
+  \end{figure}
+  
+  \item Untuk mengaktifkan fungsi \textit{snap} baik \textit{snap} ke \textit{vertex}, \textit{snap} ke \textit{segment}, atau \textit{snap} ke keduanya, pilih pada bagian \texttt{snap to}.
+  
+  \item Untuk memilih jenis \textit{snap} yang ingin digunakan terdapat pada kolom \texttt{mode}.
+  
+  \begin{itemize}
+    \item \texttt{To Vertex} artinya kita akan memilih fungsi \textit{snap} pada titik-titik penyusuan suatu garis.
+    \item \texttt{To Segment} artinya akan memilih fungsi \textit{snap} pada garis.
+    \item \texttt{To Vertex and Segment} artinya memilih fungsi \textit{snap} pada titik dan garis.
+  \end{itemize}
+  
+  \item \textit{Snap tolerance} digunakan sebagai acuan jarak toleransi antar titik untuk melekatkan pada objek \textit{snap} lainnya yang sudah ada sebelumnya. Nilai \textit{default} yang diberikan QGIS adalah 10 \textit{pixel}. Namun dapat dirubah sesuai kebutuhan.
+  
+  \item Apabila ingin menambahkan suatu poligon pada poligon lain, dan ingin menempel sesuai bentuk poligon sebelumnya dapat dilakukan dengan mengaktifkan fungsi \textit{topological} (\textit{Enable topological editing})
+  
+\end{enumerate}
+
+Demikianlah petunjuk teknis dasar penggunaan Quantum GIS sebagai sebuah alat untuk melakukan digitasi dasar peta Pajak Bumi dan Bangunan Perdesaan dan Perkotaan. Untuk melakukan analisa data spasial, akan dibuatkan pada buku petunjuk teknis yang terpisah.
