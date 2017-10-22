@@ -6,7 +6,6 @@
 %
 %%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 % RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[pdftex,12pt, oneside, a4paper]{book}
 
@@ -26,6 +25,7 @@
 \usepackage{listings}
 \usepackage{color} 
 \usepackage{array}
+\usepackage{hyperref}
 
 % make quote in italic
 \newenvironment{italicquotes}
@@ -55,7 +55,11 @@
 }
 
 % mystyle for listing set
-\lstset{style=mystyle}
+\lstset{
+	style=mystyle,
+	escapeinside={(*}{*)}
+}
+
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
@@ -77,22 +81,24 @@
 
 \frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% disini, nomor halaman berbeda, pake romawi
 %\include{dedic}
 %\include{pref}
 
-\include{02.pengesahan} 
 
-\tableofcontents
-\listoffigures
+
+%\tableofcontents
+%\listoffigures
 
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{03.konsep-sig}
-\include{04.data-sig}
-\include{05.instalasi-qgis} 
-\include{06.pengenalan-ui} 
-\include{07.sistem-referensi-koordinat} 
-\include{08.georeferensi-data-raster} 
-\include{09.membuat-data-spasial}
+\include{02.crud-thymeleaf} 
+%\include{03.konsep-sig}
+%\include{04.data-sig}
+%\include{05.instalasi-qgis} 
+%\include{06.pengenalan-ui} 
+%\include{07.sistem-referensi-koordinat} 
+%\include{08.georeferensi-data-raster} 
+%\include{09.membuat-data-spasial}
 
 \backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \printindex
